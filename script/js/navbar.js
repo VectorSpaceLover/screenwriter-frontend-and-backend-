@@ -181,13 +181,11 @@ var Navbar = React.createClass({displayName: 'Navbar',
 	    a.href = "data:" + strMimeType + "charset=utf-8," + escape(strData);
 
 
-	    if (window.MSBlobBuilder) { // IE10
-	        var bb = new MSBlobBuilder();
-	        bb.append(strData);
-	        return navigator.msSaveBlob(bb, strFileName);
-	    } /* end if(window.MSBlobBuilder) */
-
-
+	    // if (window.MSBlobBuilder) {
+	    //     var bb = new MSBlobBuilder();
+	    //     bb.append(strData);
+	    //     return navigator.msSaveBlob(bb, strFileName);
+	    // } 
 
 	    if ('download' in a) { //FF20, CH19
 	        a.setAttribute("download", n);
@@ -201,7 +199,6 @@ var Navbar = React.createClass({displayName: 'Navbar',
 	        }, 66);
 	        return true;
 	    }; /* end if('download' in a) */
-
 
 
 	    //do iframe dataURL download: (older W3)
